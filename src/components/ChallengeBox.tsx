@@ -1,9 +1,17 @@
 import { useContext } from "react";
 import { ChallengesContext } from "../contexts/ChallengesContext";
 import styles from "../styles/components/ChallengeBox.module.css";
+import { CompletedChallenges } from "./CompletedChallenges";
 
 export function ChallengeBox() {
-  const { activeChallenge, resetChallenge } = useContext(ChallengesContext);
+  const { activeChallenge, resetChallenge, completeChallenge } = useContext(
+    ChallengesContext
+  );
+
+
+function handleChallengeSucceeded(){}
+
+function handleChallengeFailed(){}
 
   return (
     //quando está ativo, ele mostra uma coisa, inativo mostra outra
@@ -26,7 +34,11 @@ export function ChallengeBox() {
             >
               Falhei
             </button>
-            <button type="button" className={styles.challengeSuccededButton}>
+            <button
+              type="button"
+              onClick={completeChallenge}
+              className={styles.challengeSuccededButton}
+            >
               Completei
             </button>
           </footer>
